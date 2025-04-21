@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Wallpaper.h"
 class Room
 {
@@ -32,6 +33,12 @@ public:
 	int getB(){ return b; }
 	//Получить высоту комнаты
 	int getH() { return h; }
+	void showRoom() {
+		if (name)
+			std::cout << "\n" << name;
+		else
+			std::cout << "\nНет имени";
+	}
 	//Установить ширину А
 	Room& setA(int a);
 	//Установить ширину Б

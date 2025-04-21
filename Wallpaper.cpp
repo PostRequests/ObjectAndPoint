@@ -1,7 +1,7 @@
 #include "Wallpaper.h"
 #include <iostream>
 Wallpaper& Wallpaper::copy(const Wallpaper& o) {
-	name = o.name;
+	changeName(o.name);
 	width = o.width;
 	height = o.height;
 	price = o.price;
@@ -21,7 +21,7 @@ Wallpaper& Wallpaper::show() {
 	return *this;
 }
 Wallpaper& Wallpaper::changeName(const char* n) {
-	if (n == name) return *this;
+	if (!n || (name && strcmp(n, name) == 0)) return *this;
 	clearName();
 	name = new char[strlen(n) + 1];
 	strcpy_s(name, strlen(n) + 1, n);

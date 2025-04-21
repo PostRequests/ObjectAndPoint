@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include "Wallpaper.h"
 #include "Room.h"
 class Home
@@ -20,12 +21,19 @@ public:
 	//Метод очистки указатели
 	Home& clear();
 	//Метод копирования, plus - для добавления объекта
-	Home& copy(const Home& o, int plus = 0);
+	Home& copy(const Home& o);
 	//Оператор присвоения
 	Home& operator=(const Home& o);
 	//Метод добавления комнаты
 	Home& addHome(const Home& h);
 	//Метод добавления комнаты
 	Home& addRoom(const Home& h);
+	Home& showRoom() {
+		for (size_t i = 0; i < count; i++)
+		{
+			r[i].showRoom();
+		}
+		return *this;
+	}
 };
 

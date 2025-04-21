@@ -2,7 +2,7 @@
 #include <iostream>
 #include <math.h>
 Room& Room::copy(const Room& o) {
-	name = o.name;
+	changeName(o.name);
 	a = o.a;
 	b = o.b;
 	h = o.h;
@@ -18,7 +18,7 @@ Room& Room::changeWallpaper(Wallpaper w) {
 	return *this;
 }
 Room& Room::changeName(const char* n) {
-	if (n == name) return *this;
+	if (!n || (name && strcmp(n, name) == 0)) return *this;
 	clearName();
 	int newLen = strlen(n) + 1;
 	name = new char[newLen];

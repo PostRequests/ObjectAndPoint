@@ -7,12 +7,12 @@ Home& Home::clear() {
 	}
 	return *this;
 }
-Home& Home::copy(const Home& o, int plus) {
+Home& Home::copy(const Home& o) {
 	clear();
-	r = new Room[o.count + plus];
+	r = new Room[o.count];
 	for (size_t i = 0; i < o.count; i++)
 		r[i] = o.r[i];
-	count = o.count + plus;
+	count = o.count;
 	return *this;
 }
 Home& Home:: operator=(const Home& o) {
@@ -21,7 +21,7 @@ Home& Home:: operator=(const Home& o) {
 }
 Home& Home::addHome(const Home& h) {
 	int lasRooms = count;
-	copy(*this, h.count);
+	copy(*this);
 	for (size_t i = lasRooms; i < h.count; i++)
 		this->r[i] = h.r[i - lasRooms];
 	return *this;
