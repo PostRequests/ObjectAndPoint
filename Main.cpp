@@ -5,6 +5,7 @@
 #include "Room.h"
 #include "MyLib/console/ANSI.h"
 #include "MyLib/str/str.h"
+#include "MyLib/Menu/Menu.h"
 int main()
 {
     system("chcp 1251 > nul");
@@ -35,8 +36,9 @@ int main()
     std::cin >> heightRooms;
     for (int i = 0; i < rooms; i++)
     {
-        str nRoom;
-        nRoom.cat("Комната ") + i;
+        str nRoom{ "Комната " };
+        std::cout << "\n" << nRoom + (i + 1);
+        std::cout << "\n" << nRoom;
     }
 
     
