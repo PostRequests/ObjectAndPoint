@@ -63,3 +63,7 @@ double Room::calcCeiling() {
 	int totalStrips = std::ceil(wC / w.getWidth()); //Необходимое количество полос на потолок
 	return std::ceil(totalStrips / stripRoll);//Необходимое количество рулонов на потолок
 }
+Room& Room::showWallpaper(){
+	w.show();
+	return *this;
+}

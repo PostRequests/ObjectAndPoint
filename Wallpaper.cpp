@@ -13,8 +13,7 @@ Wallpaper& Wallpaper::operator=(const Wallpaper& o) {
 }
 Wallpaper& Wallpaper::show() {
 	std::cout << "\n----------------------------\n"
-		<< "Тип товара : Обои.\n"
-		<< "Название : " << name << '\n'
+		<< "Название обоев : " << name << '\n'
 		<< "Размер : Ш:" << width << " В:" << height << '\n'
 		<< "Цена : " << price << "руб"
 		<< "\n----------------------------\n";

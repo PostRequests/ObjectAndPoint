@@ -20,11 +20,20 @@ Home& Home:: operator=(const Home& o) {
 	return *this;
 }
 Home& Home::addHome(const Home& h) {
-	int lasRooms = count;
-	copy(*this);
-	for (size_t i = lasRooms; i < h.count; i++)
-		this->r[i] = h.r[i - lasRooms];
+	Room* temp = new Room[count + h.count];
+	for (size_t i = 0; i < count; i++)
+		temp[i] = r[i];
+	for (size_t i = count; i < count + h.count; i++)
+		temp[i] = h.r[i - count];
+	int perC = count;
+	clear();
+	r = temp;
+	count = perC + h.count;
 	return *this;
+}
+Home& Home::addRoom(const Home& h) {
+	addHome(h);
+	return*this;
 }
 Home& Home::copyRoom(const Room& r) {
 	clear();
@@ -33,7 +42,14 @@ Home& Home::copyRoom(const Room& r) {
 	this->count = 1;
 	return *this;
 }
-Home& Home::addRoom(const Home& h) { 
-	addHome(h); 
-	return* this;
+
+Home& Home::showRoom() {
+	for (size_t i = 0; i < count; i++)
+	{
+		std::cout << r[i].getName();
+		r[i].showWallpaper();
+		std::cout << "Необходимо рулонов на стены: " << r[i].calcWalls()
+			<< "\nНеобходимо рулонов на потолок: " << r[i].calcCeiling() << "\n";
+	}
+	return *this;
 }

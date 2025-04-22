@@ -9,11 +9,12 @@ private:
 	int h; //Высота комнаты
 	Wallpaper w; //Используемые обои
 	char* name;
+	bool fullWalls;
 public:
 	Room() : Room(nullptr,0,0,0, Wallpaper(nullptr, 0, 0, 0)){}
 	Room(Room& o) : Room(o.name, o.a, o.b, o.h, o.w) {}
 	Room(const char* n, int a, int b, int h) : Room(n, a, b, h, Wallpaper(nullptr, 0, 0, 0)) {}
-	Room(const char* n, int a, int b, int h, Wallpaper w) : name(nullptr), a(a), b(b), h(h), w(w) {
+	Room(const char* n, int a, int b, int h, Wallpaper w) : name(nullptr), a(a), b(b), h(h), w(w), fullWalls(false){
 		changeName(n);
 	}
 	~Room() { clearName(); }
@@ -33,12 +34,7 @@ public:
 	int getB(){ return b; }
 	//Получить высоту комнаты
 	int getH() { return h; }
-	void showRoom() {
-		if (name)
-			std::cout << "\n" << name;
-		else
-			std::cout << "\nНет имени";
-	}
+	const char* getName() { return name; }
 	//Установить ширину А
 	Room& setA(int a);
 	//Установить ширину Б
@@ -49,5 +45,6 @@ public:
 	double calcWalls();
 	//Рассчитываем необходимый размер обоев потолок
 	double calcCeiling();
+	Room& showWallpaper();
 };
 

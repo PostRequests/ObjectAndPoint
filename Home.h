@@ -28,12 +28,6 @@ public:
 	Home& addHome(const Home& h);
 	//Метод добавления комнаты
 	Home& addRoom(const Home& h);
-	Home& showRoom() {
-		for (size_t i = 0; i < count; i++)
-		{
-			r[i].showRoom();
-		}
-		return *this;
-	}
+	Home& showRoom();
 };
 
