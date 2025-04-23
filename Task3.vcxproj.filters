@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Исходные файлы\console">
+      <UniqueIdentifier>{ceaf37a7-7ab3-4361-9974-d830eb951c10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="MyLib\Menu\Menu.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="MyLib\console\DrowChars.cpp">
+      <Filter>Исходные файлы\console</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Home.h">
@@ -44,14 +50,17 @@
     <ClInclude Include="Wallpaper.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="MyLib\console\ANSI.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="MyLib\str\str.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MyLib\Menu\Menu.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\ANSI.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\DrowChars.h">
+      <Filter>Исходные файлы\console</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
