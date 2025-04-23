@@ -25,7 +25,9 @@ int main()
     h2.addHome(home);
     h2.showRoom();*/
     //home.addRoom(room);
-    setColor(BlueFG);
+    Menu m{ 5,5,"Мен" };
+    m.addItem("Подменю 1", []() {}).addItem("Подменю 2", []() {}).show();
+//    setColor(BlueFG);
     int rooms; //Количество комнат
     int heightRooms; //Высота потолков квартиры
     std::cout <<  "=== Расчет стоимости обоев ===" << std::endl;
