@@ -1,11 +1,13 @@
 #pragma once
+#include <iostream>
+#include "MyLib/str/str.h"
 class Wallpaper
 {
 private:
 	char* name; //Название рулона обоев
 	unsigned int width; //Ширина см
 	unsigned int height;//Длинна см
-	double price;//Цена
+	unsigned int price;//Цена
 public:
 	Wallpaper() : Wallpaper(nullptr, 0, 0, 0) {}
 	Wallpaper(const Wallpaper& o) : Wallpaper(nullptr, o.width, o.height, o.price) {
@@ -40,5 +42,6 @@ public:
 	int getHeight() { return height; };
 	//Возвращаем цену
 	int getPriсe() { return price; };
+	Wallpaper& input();
 };
 

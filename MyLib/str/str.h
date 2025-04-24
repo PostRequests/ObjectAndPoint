@@ -1,4 +1,5 @@
 #pragma once
+#include "../console/Helper.h"
 #include <iostream>
 class str
 {
@@ -20,11 +21,13 @@ public:
 	//Метод очищения указателей и сброса
 	str& clear();
 	//Метод возвращает указатель на текст
-	const char * get_s() const {return s;}
+	char * get_s() {return s;}
 	//Метод возвращает размер строки
 	size_t length() {return len;}
 	//Сеттер устанавливающий строку
 	str& set_s(const char* s) {	copy(s);}
+	//Возвращает int если может преобразовать текст в число или 0
+	int toInt() {return strToInt(s);}
 	//Метод добавляющий в конец строки текст
 	str& cat(const char* s);	
 	str& cat(const str o) {	return cat(o.s);}
@@ -32,6 +35,7 @@ public:
 	str& operator+(const char* s) {	return cat(s);}
 	//Оператор складывание строки и целочисленного числа
 	str& operator+(int p);
+	str& input();
 	//Оператор выведения строки
 	operator char*() const {return s;}
 	//Метод возвращает сравнение 2х текстов

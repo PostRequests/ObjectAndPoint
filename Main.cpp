@@ -6,43 +6,68 @@
 #include "MyLib/console/ANSI.h"
 #include "MyLib/str/str.h"
 #include "MyLib/Menu/Menu.h"
+void demo();
+void test();
 int main()
 {
     system("chcp 1251 > nul");
-   /* Wallpaper paper{ "Любой", 30, 1500, 1200.0 };
-    paper.show();
-    Room room{"Зал", 600, 500, 215, paper};
-    Room room2 = room;
-    room2.changeName("A2");
-    Home home{room};
-    home.copyRoom(room2);
-    home.addRoom(room);
-    home.addRoom(room);
-    home.addRoom(room);
-    home.showRoom();
-    std::cout << '\n';
-    Home h2{ room2 };
-    h2.addHome(home);
-    h2.showRoom();*/
-    //home.addRoom(room);
-    Menu m{ 5,5,"Мен" };
-    m.addItem("Подменю 1", []() {}).addItem("Подменю 2", []() {}).show();
-//    setColor(BlueFG);
-    int rooms; //Количество комнат
+    //demo();
+    //test();
+    //system("pause>nul");
+       
+    int сRooms; //Количество комнат
     int heightRooms; //Высота потолков квартиры
     std::cout <<  "=== Расчет стоимости обоев ===" << std::endl;
     
     std::cout << "\nВведите количество комнат: ";
-    std::cin >> rooms;
-    std::cout << "\nВведите высоту потолков всей квартиры: ";
+    std::cin >> сRooms;
+    std::cout << "\nВведите высоту потолков всей квартиры, в см.: ";
     std::cin >> heightRooms;
-    for (int i = 0; i < rooms; i++)
+    Home home;
+    for (int i = 0; i < сRooms; i++)
     {
-        str nRoom{ "Комната " };
-        std::cout << "\n" << nRoom + (i + 1);
-        std::cout << "\n" << nRoom;
+        Room r;
+        Wallpaper w;
+        home.addRoom(
+            r.changeWallpaper(w.input())
+            .setHeigth(сRooms)
+            .inputAB()
+            .changeName((str)"Комната " + (i + 1))
+        );
     }
-
-    
+    home.showRoom();
+    system("pause>nul");
 }
 
+void demo() {
+    //Предустановливаем обои
+    const int count = 4;
+    Wallpaper paper[count];
+    paper[0] = { "Rumfa", 106, 1000, 198 };
+    paper[1] = { "Inspire Pablo", 53, 1000, 200 };
+    paper[2] = { "Renowa Aldo", 106, 2000, 1398 };
+    paper[3] = { "Vog Collection", 106, 1000, 398 };
+
+    //Предустанавливаем комнаты
+    Room rooms[count];
+    for (int i = 0; i < count; i++)
+        rooms[i].changeWallpaper(paper[i])
+        .changeName((str)"Комната " + (i + 1))
+        .setHeigth(200)
+        .setWlls(i % 2 == 0);
+    rooms[0].setA(320).setB(450);
+    rooms[1].setA(280).setB(375);
+    rooms[2].setA(400).setB(500);
+    rooms[3].setA(350).setB(420);
+    Home h;
+    for (int i = 0; i < count; i++)
+        h.addRoom(rooms[i]);
+    h.showRoom();
+}
+
+void test() {
+    Wallpaper p{ "Inspire Pablo", 53, 1000, 200 };
+    Room r{"Room", 320,450, 200, p};
+    Home h{ r };
+    h.showRoom();
+}

@@ -37,3 +37,9 @@ str& str::operator+(int p) {
 	sprintf_s(m, "%i", p);
 	return cat(m);
 }
+
+str& str::input(){
+	char m[1024]{};
+	std::cin >> m;
+	return copy(m);
+}

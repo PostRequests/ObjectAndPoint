@@ -42,7 +42,7 @@ Room& Room::setB(int b){
 		this->b = b;
 	return *this;
 }
-Room& Room::setH(int h){
+Room& Room::setHeigth(int h){
 	if (h > 0)
 		this->h = h;
 	return *this;
@@ -65,5 +65,22 @@ double Room::calcCeiling() {
 }
 Room& Room::showWallpaper(){
 	w.show();
+	return *this;
+}
+Room& Room::inputAB() {
+	char s;
+	std::cout << "Клеить потолок? (y)Да, (n)Нет.";
+	std::cin >> s;
+	if (s == 'y') fullWalls = true;
+	else fullWalls = false; 
+	str temp;
+	std::cout << "Введите ширину комнаты А в см.: ";
+	a = temp.input().toInt();
+	std::cout << "Введите ширину комнаты B в см.: ";
+	b = temp.input().toInt();
+	return *this;
+}
+Room& Room::setWlls(bool f) {
+	fullWalls = f;
 	return *this;
 }

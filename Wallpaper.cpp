@@ -1,5 +1,4 @@
 #include "Wallpaper.h"
-#include <iostream>
 Wallpaper& Wallpaper::copy(const Wallpaper& o) {
 	changeName(o.name);
 	width = o.width;
@@ -46,5 +45,17 @@ Wallpaper& Wallpaper::setHeight(int h) {
 Wallpaper& Wallpaper::setPrice(double p) {
 	if (p > 0)
 		price = p;
+	return *this;
+}
+Wallpaper& Wallpaper::input() {
+	std::cout << "\n¬ведите назвнаие обоев: ";
+	str temp;
+	changeName(temp.input());
+	std::cout << "¬ведите ширину обоев в см.: ";
+	width = temp.input().toInt();
+	std::cout << "¬ведите длинну обоев в см.: ";
+	height = temp.input().toInt();
+	std::cout << "¬ведите цену обоев в см.: ";
+	price = temp.input().toInt();
 	return *this;
 }

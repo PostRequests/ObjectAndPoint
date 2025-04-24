@@ -44,12 +44,21 @@ Home& Home::copyRoom(const Room& r) {
 }
 
 Home& Home::showRoom() {
+	int Pricec = 0;
 	for (size_t i = 0; i < count; i++)
 	{
-		std::cout << r[i].getName();
-		r[i].showWallpaper();
-		std::cout << "Необходимо рулонов на стены: " << r[i].calcWalls()
-			<< "\nНеобходимо рулонов на потолок: " << r[i].calcCeiling() << "\n";
+		std::cout <<  std::endl << r[i].getName();
+		int RollWalls = r[i].calcWalls();//Рулонов на стены
+		int RollCeiling = r[i].calcCeiling();//Рулонов на потолок
+		int ThisPrice = (RollWalls + RollCeiling)* r[i].getWall().getPriсe(); //Цена рулонов
+		std::cout << "\nНеобходимо рулонов на стены: " << r[i].calcWalls();
+		if(RollCeiling)
+			std::cout << "\nНеобходимо рулонов на потолок: " << r[i].calcCeiling() ;
+		std::cout << "\nСтоимость рулонов " << ThisPrice << " руб." << "\n";
+		Pricec += ThisPrice;
 	}
+	std::cout << "\n---------------------\n Итоговая стоимость : " 
+		<< Pricec << " руб.";
+
 	return *this;
 }

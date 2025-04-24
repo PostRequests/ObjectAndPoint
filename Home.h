@@ -11,6 +11,7 @@ public:
 	Home(Room& r) : r(nullptr), count(0) {
 		copyRoom(r);
 	}
+	
 	//Конструктор по умолчанию
 	Home() : r(nullptr), count(0){}
 	

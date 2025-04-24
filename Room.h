@@ -34,17 +34,22 @@ public:
 	int getB(){ return b; }
 	//Получить высоту комнаты
 	int getH() { return h; }
+	//Возвращает ссылку на  обои
+	Wallpaper& getWall() { return w; }
 	const char* getName() { return name; }
 	//Установить ширину А
 	Room& setA(int a);
 	//Установить ширину Б
 	Room& setB(int b);
 	//Установить высоту
-	Room& setH(int h);
+	Room& setHeigth(int h);
 	//Рассчитываем необходимый размер обоев по ширине
 	double calcWalls();
 	//Рассчитываем необходимый размер обоев потолок
 	double calcCeiling();
 	Room& showWallpaper();
+	//Ручной ввод ширины комнат
+	Room& inputAB();
+	Room& setWlls(bool f);
 };
 
