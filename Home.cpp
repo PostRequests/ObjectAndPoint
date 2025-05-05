@@ -9,9 +9,9 @@ Home& Home:: operator=(const Home& o) {
 	return *this;
 }
 Home& Home::addHome(const Home& h) {
-	/*for (const Room& room : h.rooms) {
+	for (const Room& room : h.rooms) {
 		rooms.push_back(room);
-	}*/
+	}
 	return *this;
 }
 Home& Home::addRoom(const Home& h) {
@@ -26,6 +26,9 @@ Home& Home::copyRoom(const Room& r) {
 
 Home& Home::showRoom() {
 	int Pricec = 0;
+	for (Room& room : rooms) {
+		room.showWallpaper();
+	}
 	for (Room& room : rooms) {
 		std::cout << std::endl << room.getName();
 		int RollWalls = room.calcWalls();//Рулонов на стены
