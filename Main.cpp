@@ -3,40 +3,40 @@
 #include "Wallpaper.h"
 #include "Home.h"
 #include "Room.h"
+#include <string>
 #include "MyLib/console/ANSI.h"
-#include "MyLib/str/str.h"
 #include "MyLib/Menu/Menu.h"
 void demo();
 void test();
 int main()
 {
     system("chcp 1251 > nul");
-    //demo();
+    demo();
     //test();
     //system("pause>nul");
        
-    int сRooms; //Количество комнат
-    int heightRooms; //Высота потолков квартиры
-    std::cout <<  "=== Расчет стоимости обоев ===" << std::endl;
-    
-    std::cout << "\nВведите количество комнат: ";
-    std::cin >> сRooms;
-    std::cout << "\nВведите высоту потолков всей квартиры, в см.: ";
-    std::cin >> heightRooms;
-    Home home;
-    for (int i = 0; i < сRooms; i++)
-    {
-        Room r;
-        Wallpaper w;
-        home.addRoom(
-            r.changeWallpaper(w.input())
-            .setHeigth(сRooms)
-            .inputAB()
-            .changeName((str)"Комната " + (i + 1))
-        );
-    }
-    home.showRoom();
-    system("pause>nul");
+    //int сRooms; //Количество комнат
+    //int heightRooms; //Высота потолков квартиры
+    //std::cout <<  "=== Расчет стоимости обоев ===" << std::endl;
+    //
+    //std::cout << "\nВведите количество комнат: ";
+    //std::cin >> сRooms;
+    //std::cout << "\nВведите высоту потолков всей квартиры, в см.: ";
+    //std::cin >> heightRooms;
+    //Home home;
+    //for (int i = 0; i < сRooms; i++)
+    //{
+    //    Room r;
+    //    Wallpaper w;
+    //    home.addRoom(
+    //        r.changeWallpaper(w.input())
+    //        .setHeigth(сRooms)
+    //        .inputAB()
+    //        .changeName("Комната " + std::to_string(i + 1))
+    //    );
+    //}
+    //home.showRoom();
+    //system("pause>nul");
 }
 
 void demo() {
@@ -52,7 +52,7 @@ void demo() {
     Room rooms[count];
     for (int i = 0; i < count; i++)
         rooms[i].changeWallpaper(paper[i])
-        .changeName((str)"Комната " + (i + 1))
+        .changeName(("Комната ") + std::to_string(i + 1))
         .setHeigth(200)
         .setWlls(i % 2 == 0);
     rooms[0].setA(320).setB(450);

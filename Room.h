@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Wallpaper.h"
+#include <string>
 class Room
 {
 private:
@@ -8,16 +9,14 @@ private:
 	int b; //Сторона Б
 	int h; //Высота комнаты
 	Wallpaper w; //Используемые обои
-	char* name;
+	std::string name;
 	bool fullWalls;
 public:
-	Room() : Room(nullptr,0,0,0, Wallpaper(nullptr, 0, 0, 0)){}
-	Room(Room& o) : Room(o.name, o.a, o.b, o.h, o.w) {}
-	Room(const char* n, int a, int b, int h) : Room(n, a, b, h, Wallpaper(nullptr, 0, 0, 0)) {}
-	Room(const char* n, int a, int b, int h, Wallpaper w) : name(nullptr), a(a), b(b), h(h), w(w), fullWalls(false){
-		changeName(n);
-	}
-	~Room() { clearName(); }
+	Room() : Room("", 0, 0, 0, Wallpaper("", 0, 0, 0)) {}
+	Room(const Room& o) : Room(o.name, o.a, o.b, o.h, o.w) {}
+	Room(const std::string& n, int a, int b, int h) : Room(n, a, b, h, Wallpaper("", 0, 0, 0)) {}
+	Room(const std::string n, int a, int b, int h, Wallpaper w) : name(n), a(a), b(b), h(h), w(w), fullWalls(false){	}
+	~Room() {  }
 	//Метод копирования
 	Room& copy(const Room& o);
 	//Оператор копирования
@@ -25,9 +24,7 @@ public:
 	//Оператор смены обоев
 	Room& changeWallpaper(Wallpaper w);
 	//Изменить имя
-	Room& changeName(const char* n);
-	//Очистить указатель имени
-	Room& clearName();
+	Room& changeName(const std::string& n);
 	//Получить ширину стороны A
 	int getA() { return a; }
 	//Получить ширину стороны Б
@@ -36,7 +33,7 @@ public:
 	int getH() { return h; }
 	//Возвращает ссылку на  обои
 	Wallpaper& getWall() { return w; }
-	const char* getName() { return name; }
+	const std::string& getName() { return name; }
 	//Установить ширину А
 	Room& setA(int a);
 	//Установить ширину Б

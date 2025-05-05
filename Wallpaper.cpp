@@ -1,6 +1,6 @@
 #include "Wallpaper.h"
 Wallpaper& Wallpaper::copy(const Wallpaper& o) {
-	changeName(o.name);
+	name = o.name;
 	width = o.width;
 	height = o.height;
 	price = o.price;
@@ -18,20 +18,7 @@ Wallpaper& Wallpaper::show() {
 		<< "\n----------------------------\n";
 	return *this;
 }
-Wallpaper& Wallpaper::changeName(const char* n) {
-	if (!n || (name && strcmp(n, name) == 0)) return *this;
-	clearName();
-	name = new char[strlen(n) + 1];
-	strcpy_s(name, strlen(n) + 1, n);
-	return *this;
-}
-Wallpaper& Wallpaper::clearName() {
-	if (name) {
-		delete[] name;
-		name = nullptr;
-	}
-	return *this;
-}
+
 Wallpaper& Wallpaper::setWidth(int w) {
 	if (w > 0)
 		width = w;
@@ -48,14 +35,18 @@ Wallpaper& Wallpaper::setPrice(double p) {
 	return *this;
 }
 Wallpaper& Wallpaper::input() {
-	std::cout << "\n¬ведите назвнаие обоев: ";
-	str temp;
-	changeName(temp.input());
+	std::cout << "\n¬ведите название обоев: ";
+	std::string temp;
+	std::getline(std::cin, temp);
+	name = temp;
 	std::cout << "¬ведите ширину обоев в см.: ";
-	width = temp.input().toInt();
-	std::cout << "¬ведите длинну обоев в см.: ";
-	height = temp.input().toInt();
-	std::cout << "¬ведите цену обоев в см.: ";
-	price = temp.input().toInt();
+	std::getline(std::cin, temp);
+	width = std::stoi(temp);
+	std::cout << "¬ведите длину обоев в см.: ";
+	std::getline(std::cin, temp);
+	height = std::stoi(temp);
+	std::cout << "¬ведите цену обоев в руб.: ";
+	std::getline(std::cin, temp);
+	price = std::stoi(temp);
 	return *this;
 }

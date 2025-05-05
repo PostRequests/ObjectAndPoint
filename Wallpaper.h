@@ -1,31 +1,24 @@
 #pragma once
 #include <iostream>
-#include "MyLib/str/str.h"
+#include <string>
 class Wallpaper
 {
 private:
-	char* name; //Название рулона обоев
+	std::string name; //Название рулона обоев
 	unsigned int width; //Ширина см
 	unsigned int height;//Длинна см
 	unsigned int price;//Цена
 public:
-	Wallpaper() : Wallpaper(nullptr, 0, 0, 0) {}
-	Wallpaper(const Wallpaper& o) : Wallpaper(nullptr, o.width, o.height, o.price) {
-		changeName(o.name);
-	}
-	Wallpaper(const char* n, int w, int h, double p) : name(nullptr), width(w), height(h), price(p){
-		changeName(n);
-	}
+	Wallpaper() : Wallpaper("", 0, 0, 0) {}
+	Wallpaper(const Wallpaper& o) : Wallpaper(o.name, o.width, o.height, o.price) {	}
+	Wallpaper(std::string n, int w, int h, double p) : name(n), width(w), height(h), price(p){	}
 	//Метод копирования
 	Wallpaper& copy(const Wallpaper& o);
 	//Оператор присвоения
 	Wallpaper& operator=(const Wallpaper& o);
 	//Деструктор, удаляем указатель на имя
-	~Wallpaper() { clearName(); }
-	//Изменяет имя объекта
-	Wallpaper& changeName(const char* n);
-	//Очистить указатель на имя
-	Wallpaper& clearName();
+	~Wallpaper() { }
+
 	//Выводит характеристики обоев
 	Wallpaper& show();
 	//Устанавливаем ширину
@@ -35,7 +28,7 @@ public:
 	//Устанавливаем цену
 	Wallpaper& setPrice(double p);
 	//Возвращаем имя
-	const char* getName() { return name; };
+	const std::string getName() { return name; };
 	//Возвращаем ширину.
 	int getWidth() { return width; };
 	//Возвращаем длину

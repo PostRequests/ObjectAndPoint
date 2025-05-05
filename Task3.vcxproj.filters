@@ -30,13 +30,19 @@
     <ClCompile Include="Wallpaper.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MyLib\str\str.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="MyLib\console\Key.cpp">
+      <Filter>Исходные файлы\console</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLib\console\Helper.cpp">
+      <Filter>Исходные файлы\console</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLib\console\DrawChars.cpp">
+      <Filter>Исходные файлы\console</Filter>
     </ClCompile>
     <ClCompile Include="MyLib\Menu\Menu.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\console</Filter>
     </ClCompile>
-    <ClCompile Include="MyLib\console\DrowChars.cpp">
+    <ClCompile Include="MyLib\str\str.cpp">
       <Filter>Исходные файлы\console</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,16 +56,25 @@
     <ClInclude Include="Wallpaper.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="MyLib\str\str.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MyLib\Menu\Menu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="MyLib\console\ANSI.h">
       <Filter>Исходные файлы\console</Filter>
     </ClInclude>
-    <ClInclude Include="MyLib\console\DrowChars.h">
+    <ClInclude Include="MyLib\str\str.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\Key.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\Helper.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\DrawChars.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\console\Console.h">
+      <Filter>Исходные файлы\console</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLib\Menu\Menu.h">
       <Filter>Исходные файлы\console</Filter>
     </ClInclude>
   </ItemGroup>

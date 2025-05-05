@@ -2,25 +2,23 @@
 #include <iostream>
 #include "Wallpaper.h"
 #include "Room.h"
+#include <vector>
 class Home
 {
 private:
-	Room* r; //Массив из комнат
-	size_t count; //Количество комнат
+	std::vector<Room> rooms; //Массив из комнат
 public:
-	Home(Room& r) : r(nullptr), count(0) {
+	Home(Room& r) : rooms() {
 		copyRoom(r);
 	}
 	
 	//Конструктор по умолчанию
-	Home() : r(nullptr), count(0){}
+	Home() : rooms(){}
 	
 	//Деструктор
-	~Home() { clear(); }
+	~Home() {  }
 
 	Home& copyRoom(const Room& r);
-	//Метод очистки указатели
-	Home& clear();
 	//Метод копирования, plus - для добавления объекта
 	Home& copy(const Home& o);
 	//Оператор присвоения
